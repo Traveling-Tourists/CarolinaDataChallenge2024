@@ -60,7 +60,16 @@ def compute_scores_underground(df):
     return df
 
 def remove_traps(df):
+
+    traps = pd.read_csv("CDC/tourist_traps.csv")
+    trap_ids = traps['id'].tolist()
     
+    print(len(df))
+    cleaned_df = df[~df['id'].isin(trap_ids)]
+    print(len(cleaned_df))
+
+    return cleaned_df
+
 
 def select_top_locations(df, user_prefs, N=20):
     """Select top N locations based on the overall score and user preferences.
@@ -330,7 +339,8 @@ user_prefs = {
     'min_num_reviews': 10,
     'min_restaurants': 2,  # Minimum number of restaurants to visit
     'max_restaurants': 2,   # Maximum number of restaurants to visit
-    'underground': True
+    'underground': True,
+    'remove_tourist': True
 }
 
 def optimal_route():
@@ -339,6 +349,9 @@ def optimal_route():
     # Load data
     df = fetch_places(user_prefs['city'], user_prefs['categories'])
     df = df.dropna(subset=['polarity', 'numReviews', 'lat', 'lng'])
+
+    if user_prefs['remove_tourist']:
+        df = remove_traps(df)
 
     if user_prefs['underground']:
         df = compute_scores_underground(df)

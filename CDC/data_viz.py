@@ -12,7 +12,8 @@ from optimal_route import (
     plot_route_on_map,
     compute_scores,
     fetch_places,
-    print_solution
+    print_solution,
+    remove_traps
 )
 
 # Function to load data
@@ -74,7 +75,7 @@ def create_map(df, location, n_places, selected_categories, show_heatmap, show_p
 def main():
     st.title("Underground Spot Discovery Map")
 
-    locations = ['Amsterdam', 'Tuscany', 'Barcelona', 'Berlin', 'Dubai', 'London', 'Paris', 'Rome']
+    locations = ['Rome', 'Amsterdam', 'Tuscany', 'Barcelona', 'Berlin', 'Dubai', 'London', 'Paris']
     location = st.sidebar.selectbox("Select a Location", locations)
 
     csv_folder = os.path.dirname(os.path.abspath(__file__))
@@ -107,13 +108,14 @@ def main():
 
     # User inputs for route optimization
     with st.expander("Set Itinerary Preferences"):
-        start_lat = st.number_input("Start Latitude", value=df.iloc[0]['lat'], format="%.6f")
-        start_lng = st.number_input("Start Longitude", value=df.iloc[0]['lng'], format="%.6f")
+        start_lat = st.number_input("Start Latitude", value=41.877134, format="%.6f")
+        start_lng = st.number_input("Start Longitude", value=12.492443, format="%.6f")
         start_time = st.slider("Start Time (minutes from midnight)", 0, 1440, 480)
         end_time = st.slider("End Time (minutes from midnight)", 0, 1440, 1200)
         mode_of_travel = st.selectbox("Mode of Travel", ['driving-car', 'cycling-regular', 'foot-walking'])
         min_polarity = st.slider("Minimum Polarity", min_value=0.0, max_value=9.0, value=4.0)
         min_num_reviews = st.slider("Minimum Number of Reviews", min_value=0, max_value=200, value=10)
+        remove_tourist = st.checkbox("Remove Tourist Traps", value=False)
         underground = st.checkbox("Underground Only", value=False)
 
     calculate_route = st.button("Calculate Optimal Itinerary")
@@ -133,11 +135,15 @@ def main():
                 'min_num_reviews': min_num_reviews,
                 'min_restaurants': 2,
                 'max_restaurants': 2,
-                'underground': underground
+                'underground': underground,
+                'remove_tourist': remove_tourist
             }
 
             df = fetch_places(user_prefs['city'], user_prefs['categories'])
             df = df.dropna(subset=['polarity', 'numReviews', 'lat', 'lng'])
+
+            if user_prefs['remove_tourist']:
+                df = remove_traps(df)
 
             if user_prefs['underground']:
                 df = compute_scores_underground(df)
