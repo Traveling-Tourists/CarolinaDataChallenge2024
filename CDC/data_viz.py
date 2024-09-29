@@ -75,7 +75,7 @@ def main():
 
     selected_categories = st.multiselect("Select Categories to Display", categories, default=categories)
 
-    n_places = st.slider("Number of Underground Places to Show", min_value=1, max_value=len(df), value=len(df))
+    n_places = st.slider("Number of Underground Places to Show", min_value=1, max_value=len(df), value = 150)
 
     show_heatmap = st.checkbox("Show Heatmap", value=True)
 
