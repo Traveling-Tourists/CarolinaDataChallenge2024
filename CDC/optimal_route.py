@@ -63,7 +63,7 @@ def remove_traps(df):
 
     traps = pd.read_csv("CDC/tourist_traps.csv")
     trap_ids = traps['id'].tolist()
-    
+
     print(len(df))
     cleaned_df = df[~df['id'].isin(trap_ids)]
     print(len(cleaned_df))
@@ -141,6 +141,7 @@ def prepare_locations(df_top, user_prefs):
         locations.append(loc)
     return locations
 
+# This method was created using AI assistance for accessing the API
 def solve_with_ors_optimization(locations, user_prefs, api_key):
     """Solve the routing problem using ORS optimization endpoint."""
     jobs = []
@@ -311,17 +312,15 @@ def plot_route_on_map(locations, steps_info, mode, api_key='YOUR_API_KEY'):
             icon=folium.Icon(color=icon_color)
         ).add_to(m)
 
-    # Add markers for all locations (including non-visited)
     for idx, loc in enumerate(locations):
         if idx not in [step['location_idx'] for step in steps_info]:
-            icon_color = 'gray'  # Different color for non-visited locations
+            icon_color = 'gray'
             folium.Marker(
                 [loc['lat'], loc['lng']],
                 popup=f"{loc['name']} ({loc['category']}) - Not Visited",
                 icon=folium.Icon(color=icon_color)
             ).add_to(m)
 
-    # Save the map to an HTML file
     m.save('optimized_route.html')
     print("\nMap has been saved to 'optimized_route.html'. Open this file to view the route.")
 
@@ -329,16 +328,16 @@ def plot_route_on_map(locations, steps_info, mode, api_key='YOUR_API_KEY'):
 
 user_prefs = {
     'city': 'Amsterdam',
-    'categories': ['attraction', 'restaurant'],  # Added 'restaurant'
+    'categories': ['attraction', 'restaurant'],
     'start_lat': 52.355320008998,
     'start_lng': 4.9574317242814,
-    'start_time': 480,   # 8:00 AM
-    'end_time': 1200,    # 8:00 PM
+    'start_time': 480, 
+    'end_time': 1200,
     'mode_of_travel': 'driving-car',
     'min_polarity': 4,
     'min_num_reviews': 10,
-    'min_restaurants': 2,  # Minimum number of restaurants to visit
-    'max_restaurants': 2,   # Maximum number of restaurants to visit
+    'min_restaurants': 2,
+    'max_restaurants': 2, 
     'underground': True,
     'remove_tourist': True
 }
@@ -346,7 +345,6 @@ user_prefs = {
 def optimal_route():
     """Main function to run the itinerary optimizer."""
 
-    # Load data
     df = fetch_places(user_prefs['city'], user_prefs['categories'])
     df = df.dropna(subset=['polarity', 'numReviews', 'lat', 'lng'])
 
@@ -358,20 +356,15 @@ def optimal_route():
     else:
         df = compute_scores(df)
 
-    # Select top locations
-    df_top = select_top_locations(df, user_prefs, N=10)  # Increased N to 10 for more locations
+    df_top = select_top_locations(df, user_prefs, N=10)
 
-    # Prepare locations
     locations = prepare_locations(df_top, user_prefs)
 
-    # Solve routing problem using ORS optimization
-    ORS_API_KEY = '5b3ce3597851110001cf6248ef9ab7f2ff1b4472a4e320f7933b043b'  # Replace with your OpenRouteService API key
+    ORS_API_KEY = '5b3ce3597851110001cf6248ef9ab7f2ff1b4472a4e320f7933b043b'
     route, steps_info = solve_with_ors_optimization(locations, user_prefs, ORS_API_KEY)
 
     if route and steps_info:
-        # Print solution with arrival times
         print_solution(locations, steps_info, user_prefs)
-        # Plot the route on a map
         plot_route_on_map(locations, steps_info, user_prefs['mode_of_travel'], api_key=ORS_API_KEY)
     else:
         print("No solution found.")
