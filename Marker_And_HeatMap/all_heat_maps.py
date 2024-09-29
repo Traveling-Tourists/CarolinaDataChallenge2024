@@ -1,4 +1,4 @@
-# Save this as app.py
+# Save this as all_heat_maps.py
 import folium
 from folium.plugins import HeatMap
 import requests
