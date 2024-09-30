@@ -111,10 +111,10 @@ def main():
         start_lat = st.number_input("Start Latitude", value=41.877134, format="%.6f")
         start_lng = st.number_input("Start Longitude", value=12.492443, format="%.6f")
         start_time = st.slider("Start Time (minutes from midnight)", 0, 1440, 480)
-        end_time = st.slider("End Time (minutes from midnight)", 0, 1440, 1200)
+        end_time = st.slider("End Time (minutes from midnight)", 0, 1440, 1000)
         mode_of_travel = st.selectbox("Mode of Travel", ['driving-car', 'cycling-regular', 'foot-walking'])
         min_polarity = st.slider("Minimum Polarity", min_value=0.0, max_value=9.0, value=4.0)
-        min_num_reviews = st.slider("Minimum Number of Reviews", min_value=0, max_value=200, value=10)
+        min_num_reviews = st.slider("Minimum Number of Reviews", min_value=0, max_value=200, value=6)
         remove_tourist = st.checkbox("Remove Tourist Traps", value=False)
         underground = st.checkbox("Underground Only", value=False)
 
@@ -150,11 +150,11 @@ def main():
             else:
                 df = compute_scores(df)
 
-            df_top = select_top_locations(df, user_prefs, N=10)
+            df_top = select_top_locations(df, user_prefs, N=25)
 
             locations = prepare_locations(df_top, user_prefs)
 
-            ORS_API_KEY = '5b3ce3597851110001cf6248ef9ab7f2ff1b4472a4e320f7933b043b'  # Replace with your OpenRouteService API key
+            ORS_API_KEY = st.secrets['api_keys']['ors_api_key'] # Replace with your OpenRouteService API key
             route, steps_info = solve_with_ors_optimization(locations, user_prefs, ORS_API_KEY)
 
             if route and steps_info:

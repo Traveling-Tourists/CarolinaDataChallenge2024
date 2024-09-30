@@ -1,1 +1,4 @@
 /venv
+/.streamlit
+
+CDC/.streamlit/secrets.toml

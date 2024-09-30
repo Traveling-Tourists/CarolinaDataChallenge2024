@@ -248,14 +248,12 @@ def plot_route_on_map(locations, steps_info, mode, api_key='YOUR_API_KEY'):
     """Plot the optimized route on a map using Folium, including all top locations."""
     client = openrouteservice.Client(key=api_key)
     
-
     coords = []
     for step in steps_info:
         loc_idx = step['location_idx']
         loc = locations[loc_idx]
         coords.append((loc['lng'], loc['lat']))
     
-
     unique_coords = [coords[0]]
     for coord in coords[1:]:
         if coord != unique_coords[-1]:
@@ -312,15 +310,6 @@ def plot_route_on_map(locations, steps_info, mode, api_key='YOUR_API_KEY'):
             icon=folium.Icon(color=icon_color)
         ).add_to(m)
 
-    for idx, loc in enumerate(locations):
-        if idx not in [step['location_idx'] for step in steps_info]:
-            icon_color = 'gray'
-            folium.Marker(
-                [loc['lat'], loc['lng']],
-                popup=f"{loc['name']} ({loc['category']}) - Not Visited",
-                icon=folium.Icon(color=icon_color)
-            ).add_to(m)
-
     m.save('optimized_route.html')
     print("\nMap has been saved to 'optimized_route.html'. Open this file to view the route.")
 
@@ -360,7 +349,7 @@ def optimal_route():
 
     locations = prepare_locations(df_top, user_prefs)
 
-    ORS_API_KEY = '5b3ce3597851110001cf6248ef9ab7f2ff1b4472a4e320f7933b043b'
+    ORS_API_KEY = 'insert_key_here'
     route, steps_info = solve_with_ors_optimization(locations, user_prefs, ORS_API_KEY)
 
     if route and steps_info:
