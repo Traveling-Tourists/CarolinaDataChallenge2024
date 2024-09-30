@@ -19,7 +19,7 @@ Check out **[CDC 2024](https://cdc.cs.unc.edu/)**
 **Personalized Itenary**
 
 ![Itinerary](itinerary.jpeg)
-<img src="itinerary.jpeg" alt="Location Demo" width="600" height="600">
+<img src="itinerary.jpeg" alt="Location Demo" width="700" height="800">
 
 ![Underground Locations](underground.jpeg)
 
