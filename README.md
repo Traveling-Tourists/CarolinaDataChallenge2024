@@ -19,6 +19,8 @@ Check out **[CDC 2024](https://cdc.cs.unc.edu/)**
 **Personalized Itenary**
 
 ![Itinerary](itinerary.jpeg)
+<img src="itinerary.jpeg" alt="Location Demo" width="400" height="300">
+
 ![Underground Locations](underground.jpeg)
 
 **Heat Maps**
@@ -27,7 +29,7 @@ Check out **[CDC 2024](https://cdc.cs.unc.edu/)**
 
 **Location Markers**
 
-![Locations](./gitimages/LocationDemo.gif)
+<img src="./gitimages/LocationDemo.gif" alt="Location Demo" width="400" height="300">
 
 **Demos**
 
