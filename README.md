@@ -16,5 +16,5 @@ Check out: <a href="https://cdc.cs.unc.edu/" style="display:inline-block; backgr
 
 # Visualization and Demos
 
-https://github.com/user-attachments/assets/822204ee-79eb-4dc7-a43b-f684ea4d4154
+## Heat Maps
 
