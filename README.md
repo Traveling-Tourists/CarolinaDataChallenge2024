@@ -18,18 +18,17 @@ Check out **[CDC 2024](https://cdc.cs.unc.edu/)**
 
 **Personalized Itenary**
 
-![Itinerary](itinerary.jpeg)
-<img src="itinerary.jpeg" alt="Location Demo" width="700" height="800">
+<img src="itinerary.jpeg" alt="itinerary img" width="700" height="800">
 
-![Underground Locations](underground.jpeg)
+<img src="underground.jpeg" alt="undergound img" width="700" height="800">
 
 **Heat Maps**
 
-![Heat Map](heatmap.jpeg)
+<img src="heatmap.jpeg" alt="heatmap img" width="700" height="800">
 
 **Location Markers**
 
-<img src="./gitimages/LocationDemo.gif" alt="Location Demo" width="400" height="300">
+<img src="./gitimages/LocationDemo.gif" alt="Location Demo" width="700" height="800">
 
 **Demos**
 
