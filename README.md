@@ -10,7 +10,7 @@ We aimed to create a service that allows adventurous travelers to discover "hidd
 
 
 Check out our
-**[Demo Website](https://travelingtourists.streamlit.app/)**
+**[Website](https://travelingtourists.streamlit.app/)**
 
 Check out our 
 **[Project Devpost](https://devpost.com/software/optimizing-and-understanding-traveling-tourist-problem?ref_content=user-portfolio&ref_feature=in_progress)**
