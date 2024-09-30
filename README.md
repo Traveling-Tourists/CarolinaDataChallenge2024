@@ -6,7 +6,7 @@ Won **1st Place** in the 2024 CDC Pop Culture Track, focusing on the theme of *T
 
 # Project Inspiration
 
-> We aimed to create a service that allows adventurous travelers to discover "hidden gems"—high-quality yet underrated attractions. Our goal is to help travelers live like locals while promoting small businesses. Our service highlights businesses with positive sentiments but fewer reviews in our travel itinerary. Users can select their starting point and time, and the service will automatically plan their day. There’s also an option to include popular tourist spots if desired.
+We aimed to create a service that allows adventurous travelers to discover "hidden gems"—high-quality yet underrated attractions. Our goal is to help travelers live like locals while promoting small businesses. Our service highlights businesses with positive sentiments but fewer reviews in our travel itinerary. Users can select their starting point and time, and the service will automatically plan their day. There’s also an option to include popular tourist spots if desired.
 
 Check out our 
 **[Project Devpost](https://devpost.com/software/optimizing-and-understanding-traveling-tourist-problem?ref_content=user-portfolio&ref_feature=in_progress)**
