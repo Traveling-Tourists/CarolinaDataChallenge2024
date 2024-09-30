@@ -16,6 +16,10 @@ Check out **[CDC 2024](https://cdc.cs.unc.edu/)**
 
 # Visualization and Demos
 
+**Demos**
+
+![Itinerary Demo](itenerarydemoGIF.gif)
+
 **Personalized Itenary**
 
 <img src="itinerary.jpeg" alt="itinerary img" width="700" height="800">
@@ -26,12 +30,5 @@ Check out **[CDC 2024](https://cdc.cs.unc.edu/)**
 
 <img src="heatmap.jpeg" alt="heatmap img" width="700" height="800">
 
-**Location Markers**
-
-<img src="./gitimages/LocationDemo.gif" alt="Location Demo" width="700" height="800">
-
-**Demos**
-
-![Itinerary Demo](itenerarydemoGIF.gif)
 
 
