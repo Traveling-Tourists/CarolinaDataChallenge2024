@@ -31,4 +31,7 @@ Check out **[CDC 2024](https://cdc.cs.unc.edu/)**
 <img src="heatmap.jpeg" alt="heatmap img" width="700" height="800">
 
 
+**Try it yourself!**
+
+https://travelingtourists.streamlit.app/
 
