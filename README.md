@@ -18,9 +18,19 @@ Check out **[CDC 2024](https://cdc.cs.unc.edu/)**
 
 **Personalized Itenary**
 
+![Itinerary](itinerary.jpeg)
+![Underground Locations](underground.jpeg)
+
 **Heat Maps**
+
+![Heat Map](heatmap.jpeg)
 
 **Location Markers**
 
+![Locations](LocationDemo.gif)
+
 **Demos**
+
+![Itinerary Demo](itenerarydemoGIF.gif)
+
 
