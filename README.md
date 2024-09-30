@@ -27,7 +27,7 @@ Check out **[CDC 2024](https://cdc.cs.unc.edu/)**
 
 **Location Markers**
 
-![Locations](LocationDemo.gif)
+![Locations](./gitimages/LocationDemo.gif)
 
 **Demos**
 
