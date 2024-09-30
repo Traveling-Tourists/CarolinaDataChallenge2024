@@ -11,5 +11,8 @@ We aimed to create a service that allows adventurous travelers to discover "hidd
 Check out our 
 <a href="https://devpost.com/software/optimizing-and-understanding-traveling-tourist-problem?ref_content=user-portfolio&ref_feature=in_progress" style="display:inline-block; background-color:#4CAF50; color:white; padding:10px 20px; text-align:center; text-decoration:none; border-radius:5px;">Project Devpost</a>
 
+Check out: <a href="https://cdc.cs.unc.edu/" style="display:inline-block; background-color:#4CAF50; color:white; padding:10px 20px; text-align:center; text-decoration:none; border-radius:5px;">CDC 2024</a>
+
+
 # Visualization and Demos
 
